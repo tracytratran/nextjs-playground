@@ -1,5 +1,9 @@
-export default async function Dog() {
-  const dogResponse = await fetch("https://dog.ceo/api/breeds/image/random");
+export default async function Dog({ searchParams }) {
+  const query = await searchParams;
+  const breed = query.breed;
+  const dogResponse = await fetch(
+    `https://dog.ceo/api/breed/${breed}/images/random`,
+  );
   if (!dogResponse.ok)
     throw new Error(
       `HTTP Error: ${dogResponse.status} ${dogResponse.statusText}`,
