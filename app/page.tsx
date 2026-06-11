@@ -1,4 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
+
+const routes = [
+  { href: "/dogs?breed=labrador", label: "Random dog picture" },
+  { href: "/blogs", label: "Vercel blog unique categories" },
+  { href: "/blogs/getting-started-with-next-js", label: "Dynamic blog post" },
+  { href: "/client-render", label: "Client render" },
+  { href: "/server-render", label: "Server render" },
+];
 
 export default function Home() {
   return (
@@ -20,30 +29,16 @@ export default function Home() {
             React Week 5 - Assignment, Part 1
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          {routes.map((route) => (
+            <Link
+              key={route.href}
+              href={route.href}
+              className="flex h-12 items-center justify-center rounded-full border border-solid border-black/[.08] px-5 text-sm font-medium transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+            >
+              {route.label}
+            </Link>
+          ))}
         </div>
       </main>
     </div>
