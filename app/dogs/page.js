@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default async function Dog({ searchParams }) {
   const query = await searchParams;
   const breed = query.breed;
@@ -30,7 +32,21 @@ export default async function Dog({ searchParams }) {
         />
       </div>
 
+      <p className="text-sm text-amber-700 dark:text-amber-400">
+        Want a different breed? Change the URL to{" "}
+        <code className="bg-amber-100 dark:bg-amber-900 text-amber-900 dark:text-amber-100 text-xs font-mono px-1.5 py-0.5 rounded">
+          ?breed=your-breed
+        </code>
+      </p>
+
       <span className="text-4xl">🐶</span>
+
+      <Link
+        href="/"
+        className="flex h-12 items-center justify-center rounded-full border border-solid border-amber-300 dark:border-amber-700 px-5 text-sm font-medium text-amber-900 dark:text-amber-100 transition-colors hover:bg-amber-100 dark:hover:bg-amber-900"
+      >
+        ← Back to main page
+      </Link>
     </div>
   );
 }

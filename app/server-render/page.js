@@ -1,8 +1,15 @@
+import Link from "next/link";
 import blogs from "../data";
 
 export default function ServerComponent() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
+      <Link
+        href="/"
+        className="inline-flex h-10 items-center rounded-2xl border border-gray-100 shadow-sm px-4 text-sm font-medium text-gray-500 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 mb-8"
+      >
+        ← Back to main page
+      </Link>
       <h2 className="text-3xl font-bold text-gray-900 mb-8 tracking-tight">
         Latest Posts
       </h2>
